@@ -4,11 +4,11 @@
       <input
         type="text"
         class="search-bar"
-        placeholder="ENTER TOUR CITY .."
+        placeholder="ENTER YOUR CITY .."
         [(ngModel)]="query"
         (keypress)="getinfo($event)">
     </div>
-    <div class="weather-wrap" *ngIf=" weather.main !=undefined; else nocity">
+    <div class="weather-wrap" *ngIf=" cityValid!= undefined ; else nocity">
       <div class="location-box">
         <div class="location">{{name}} , {{country}}</div>
         <div class="date">{{getdates()}}</div>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <ng-template #nocity>
-      <h1 class="nocity">RETRY WITH CORRECT CIRY NAME</h1>
+      <h1 class="nocity">RETRY WITH CORRECT CITY NAME</h1>
     </ng-template>
   </main>
 </div>
