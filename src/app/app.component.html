@@ -1,0 +1,25 @@
+<div id="app" [ngClass]="{'wrap': temp > 30}">
+  <main>
+    <div class="search-box">
+      <input
+        type="text"
+        class="search-bar"
+        placeholder="ENTER TOUR CITY .."
+        [(ngModel)]="query"
+        (keypress)="getinfo($event)">
+    </div>
+    <div class="weather-wrap" *ngIf=" weather.main !=undefined; else nocity">
+      <div class="location-box">
+        <div class="location">{{name}} , {{country}}</div>
+        <div class="date">{{getdates()}}</div>
+      </div>
+      <div class="weather-box">
+        <div class="temp">{{temp}}ºC</div>
+        <div class="weather">{{state}}</div>
+      </div>
+    </div>
+    <ng-template #nocity>
+      <h1 class="nocity">RETRY WITH CORRECT CIRY NAME</h1>
+    </ng-template>
+  </main>
+</div>
